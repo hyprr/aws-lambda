@@ -1,4 +1,5 @@
 (ns almiqi.core
+  ;; this part is quite importand . it wont work otherwise.
   (:gen-class
    :methods [^:static [handler [String] String]]))
 
@@ -9,6 +10,7 @@
   (println "Hello, World!"))
 
 
+;;; funtion name is important . especially that dash.
 (defn -handler [s]
   (println s)
   (str "Hello " s "!"))
