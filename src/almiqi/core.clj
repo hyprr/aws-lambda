@@ -9,5 +9,5 @@
   (println "Hello, World!"))
 
 
-(defn handler [s]
+(defn- handler [s]
   (str "Hello " s "!"))
