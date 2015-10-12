@@ -10,5 +10,4 @@
                  ]
   :main ^:skip-aot almiqi.core
   :target-path "target/%s"
-  :aot :all
-  :profiles {:uberjar {:aot :all}})
+  :aot :all)
