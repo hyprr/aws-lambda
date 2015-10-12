@@ -10,4 +10,5 @@
 
 
 (defn -handler [s]
+  (println s)
   (str "Hello " s "!"))
