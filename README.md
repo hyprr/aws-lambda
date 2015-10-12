@@ -1,36 +1,28 @@
-# almiqi
+#You have install AWS command line tools first. then off you go.
 
-FIXME: description
 
-## Installation
 
-Download from http://example.com/FIXME.
+```Bash
 
-## Usage
+aws lambda create-function \
+  --function-name clj-almiqi \
+  --handler almiqi.core::handler \
+  --runtime java8 \
+  --memory 512 \
+  --timeout 10 \
+  --role arn:aws:iam::your-account-id:role/lambda_basic_execution \
+  --zip-file fileb://./target/uberjar/almiqi-0.1.0-SNAPSHOT-standalone.jar
 
-FIXME: explanation
 
-    $ java -jar almiqi-0.1.0-standalone.jar [args]
 
-## Options
 
-FIXME: listing of options this app accepts.
 
-## Examples
+aws lambda update-function-code \
+  --function-name clj-almiqi \
+  --zip-file fileb://./target/uberjar/almiqi-0.1.0-SNAPSHOT-standalone.jar
 
-...
 
-### Bugs
 
-...
+aws lambda invoke      --function-name clj-almiqi     --invocation-type RequestResponse     --payload '"aoeuaeo"' outfile.txt
 
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2015 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+```
