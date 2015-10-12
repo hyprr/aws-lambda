@@ -1,5 +1,7 @@
 (ns almiqi.core
-  (:gen-class))
+  (:gen-class
+   :methods [^:static [handler [String] String]]))
+
 
 (defn -main
   "I don't do a whole lot ... yet."
