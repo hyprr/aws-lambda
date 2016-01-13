@@ -2,16 +2,17 @@
   ;; this part is quite importand . it wont work otherwise.
   (:require [clojure.data.json :as json])
   (:gen-class
-   :methods [^:static [handler [String] String]]))
+   :implements [com.amazonaws.services.lambda.runtime.RequestStreamHandler]))
 
 
-(defn -main
-  "I don't do a whole lot ... yet."
-  [& args]
-  (println "Hello, World!"))
+(defn hello [params]
+  {:message (str "Hello " (:name params))})
+
+(defn -handleRequest [this is os context]
+  (let [w (io/writer os)]
+    (-> (json/read (io/reader is) :key-fn keyword)
+        (hello)
+        (json/write w))
+    (.flush w)))
 
 
-;;; funtion name is important . especially that dash.
-(defn -handler [s]
-  (println s)
-  (json/write-str {:name "haha"}))
