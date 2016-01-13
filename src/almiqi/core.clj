@@ -1,6 +1,9 @@
 (ns almiqi.core
   ;; this part is quite importand . it wont work otherwise.
-  (:require [clojure.data.json :as json])
+  (:require [clojure.data.json :as json]
+            [clojure.string :as s]
+            [clojure.java.io :as io])
+  
   (:gen-class
    :implements [com.amazonaws.services.lambda.runtime.RequestStreamHandler]))
 
