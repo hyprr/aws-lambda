@@ -1,5 +1,6 @@
 (ns almiqi.core
   ;; this part is quite importand . it wont work otherwise.
+  (:require [clojure.data.json :as json])
   (:gen-class
    :methods [^:static [handler [String] String]]))
 
@@ -13,4 +14,4 @@
 ;;; funtion name is important . especially that dash.
 (defn -handler [s]
   (println s)
-  (str "Hello " s "!"))
+  (json/write-str {:name "haha"}))
